@@ -133,14 +133,14 @@ class Easydropdown {
                     cb = callbacks.onClose;
                 }
 
-                if (typeof cb === 'function') cb();
+                if (typeof cb === 'function') cb(state.value, this);
 
                 break;
             }
             case 'selectedIndex': {
                 const cb = callbacks.onSelect;
 
-                if (typeof cb === 'function') cb(state.value);
+                if (typeof cb === 'function') cb(state.value, this);
 
                 break;
             }
@@ -150,7 +150,7 @@ class Easydropdown {
                 if (state[key] === false) {
                     const nextValue = state.getOptionFromIndex(state.focusedIndex).value;
 
-                    if (typeof cb === 'function') cb(nextValue);
+                    if (typeof cb === 'function') cb(nextValue, this);
                 }
             }
         }
